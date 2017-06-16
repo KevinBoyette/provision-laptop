@@ -1,0 +1,6 @@
+---
+- name: Provision Laptop
+  hosts: all
+  connection: local
+  roles:
+    - osx
