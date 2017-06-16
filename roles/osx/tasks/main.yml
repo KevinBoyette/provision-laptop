@@ -44,3 +44,9 @@
 #     state: latest
 #   with_items:
 #      - postgresql
+
+- name: Pull Inspec
+  command: docker pull chef/inspec
+
+- name: Alias Inpec For the Current Run
+  command: alias inspec='docker run -it --rm -v $(pwd):/share chef/inspec'
