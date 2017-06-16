@@ -1,6 +1,46 @@
 ---
 
+
 - name: Upgrade Homebrew
   homebrew:
     update_homebrew: yes
-    upgrade_all: yes
+
+
+- name: Install Languages
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - python
+    - ghc
+    - go
+    - groovy
+    - node
+    - ruby
+
+- name: Install Packages
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - vim
+    - awscli
+    - docker
+    - docker-compose
+    - docker-machine
+    - cmake
+    - curl
+    - jq
+    - ShellCheck
+    - terraform
+    - tree
+    - wget
+    - zsh
+    - zsh-completions
+
+# - name: Install Databases
+#   homebrew:
+#     name: "{{ item }}"
+#     state: latest
+#   with_items:
+#      - postgresql
