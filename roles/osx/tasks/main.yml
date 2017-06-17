@@ -1,10 +1,7 @@
 ---
-
-
 - name: Upgrade Homebrew
   homebrew:
     update_homebrew: yes
-
 
 - name: Install Languages
   homebrew:
@@ -37,13 +34,6 @@
     - wget
     - zsh
     - zsh-completions
-
-# - name: Install Databases
-#   homebrew:
-#     name: "{{ item }}"
-#     state: latest
-#   with_items:
-#      - postgresql
 
 - name: Pull Inspec
   command: docker pull chef/inspec
