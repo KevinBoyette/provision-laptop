@@ -35,8 +35,68 @@
     - zsh
     - zsh-completions
 
-- name: Pull Inspec
-  command: docker pull chef/inspec
+- name: Install Atom
+  homebrew_cask:
+    name: atom
+    state: present
+    update_homebrew: yes
 
-- name: Alias Inpec For the Current Run
-  command: alias inspec='docker run -it --rm -v $(pwd):/share chef/inspec'
+- name: Install Update Atom Packages
+  command: apm install {{ item }}
+  with_items:
+    - autocomplete-plus
+    - language-c
+    - language-git
+    - language-go
+    - language-python
+    - language-ruby
+    - language-javascript
+    - language-json
+    - language-make
+    - language-shellscript
+    - language-sql
+    - language-sql-mysql
+    - language-pgsql
+    - language-todo
+    - language-toml
+    - language-yaml
+# Community Packages
+    - atom-beautify
+    - atom-clock
+    - autocomplete-clang
+    - autocomplete-python
+    - busy-signal
+    - clang-format
+    - es6-javascript
+    # - format-sql
+    - formatter-clang-format
+    - git-plus
+    - language-docker
+    - linter
+    - linter-docker
+    - linter-lintr
+    - linter-shellcheck
+    - linter-ui-default
+    - make-runner
+    - platformio-ide-terminal
+    - python-autopep8
+    - python-debugger
+    - python-indent
+    - python-isort
+    - python-tools
+    - python-yapf
+    - standard-formatter
+    - tree-view-git-status
+    - unfancy-file-icons
+
+- name: Update All Atom Packages
+  command: apm upgrade --confirm false --verbose
+
+# - name: Install Docker For Mac
+#   command: wget --show-progress https://download.docker.com/mac/stable/Docker.dmg
+#
+# - name: Pull Inspec
+#   command: docker pull chef/inspec
+#
+# - name: Alias Inpec For the Current Run
+#   command: alias inspec='docker run -it --rm -v $(pwd):/share chef/inspec'
