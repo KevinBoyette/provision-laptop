@@ -1,6 +1,14 @@
 # TODO Reorganize Playbooks
 ---
 - block:
+    - name: Update Mac OS X
+      become: yes
+      command: softwareupdate -i -a
+  tags:
+    - provision
+    - update_mac
+    
+- block:
     - name: Upgrade Homebrew
       homebrew:
         update_homebrew: yes
@@ -55,7 +63,7 @@
     update_homebrew: yes
   tags:
     - provision
-    
+
 - block:
     - name: Install Update Atom Packages
       command: apm install {{ item }}
