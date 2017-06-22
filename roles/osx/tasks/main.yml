@@ -33,6 +33,7 @@
         - docker-machine
         - cmake
         - curl
+        - coreutils
         - jq
         - ShellCheck
         - terraform
@@ -46,13 +47,16 @@
     - update_all
     - test
 
-- block:
-    - name: Install Atom
-      homebrew_cask:
-        name: atom
-        state: present
-        update_homebrew: yes
 
+- name: Install Atom
+  homebrew_cask:
+    name: atom
+    state: present
+    update_homebrew: yes
+  tags:
+    - provision
+    
+- block:
     - name: Install Update Atom Packages
       command: apm install {{ item }}
       with_items:
@@ -136,5 +140,5 @@
         state: absent
   tags:
     - provision
-    - update
+    - update_all
     - test

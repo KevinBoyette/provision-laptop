@@ -72,6 +72,10 @@ describe package('curl') do
   it { should be_installed }
 end
 
+describe package('coreutils') do
+  it { should be_installed }
+end
+
 describe package('jq') do
   it { should be_installed }
 end
