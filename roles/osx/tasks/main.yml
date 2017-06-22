@@ -1,176 +1,139 @@
 # TODO Reorganize Playbooks
 ---
-- name: Upgrade Homebrew
-  homebrew:
-    update_homebrew: yes
-  tags:
-    - provision
-    - update
+- block:
+    - name: Upgrade Homebrew
+      homebrew:
+        update_homebrew: yes
 
-- name: Install Languages
-  homebrew:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - python
-    - ghc
-    - go
-    - groovy
-    - node
-    - ruby
-    - rbenv
-    - ruby-build
-    - make
-    - gcc
+    - name: Install Languages
+      homebrew:
+        name: '{{ item }}'
+        state: latest
+      with_items:
+        - python
+        - ghc
+        - go
+        - groovy
+        - node
+        - ruby
+        - rbenv
+        - ruby-build
+        - make
+        - gcc
+
+    - name: Install Packages
+      homebrew:
+        name: '{{ item }}'
+        state: latest
+      with_items:
+        - vim
+        - awscli
+        - docker
+        - docker-compose
+        - docker-machine
+        - cmake
+        - curl
+        - jq
+        - ShellCheck
+        - terraform
+        - tree
+        - wget
+        - zsh
+        - zsh-completions
   tags:
     - provision
-    - update
+    - update_packages
+    - update_all
     - test
 
-- name: Install Packages
-  homebrew:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - vim
-    - awscli
-    - docker
-    - docker-compose
-    - docker-machine
-    - cmake
-    - curl
-    - jq
-    - ShellCheck
-    - terraform
-    - tree
-    - wget
-    - zsh
-    - zsh-completions
+- block:
+    - name: Install Atom
+      homebrew_cask:
+        name: atom
+        state: present
+        update_homebrew: yes
+
+    - name: Install Update Atom Packages
+      command: apm install {{ item }}
+      with_items:
+        - autocomplete-plus
+        - language-c
+        - language-git
+        - language-go
+        - language-python
+        - language-ruby
+        - language-javascript
+        - language-json
+        - language-make
+        - language-shellscript
+        - language-sql
+        - language-sql-mysql
+        - language-pgsql
+        - language-todo
+        - language-toml
+        - language-yaml
+    # Community Packages
+        - atom-beautify
+        - atom-clock
+        - autocomplete-clang
+        - autocomplete-python
+        - busy-signal
+        - clang-format
+        - es6-javascript
+        # - format-sql
+        - formatter-clang-format
+        - git-plus
+        - language-docker
+        - linter
+        - linter-docker
+        - linter-lintr
+        - linter-shellcheck
+        - linter-ui-default
+        - make-runner
+        - platformio-ide-terminal
+        - python-autopep8
+        - python-debugger
+        - python-indent
+        - python-isort
+        - python-tools
+        - python-yapf
+        - standard-formatter
+        - tree-view-git-status
+        - unfancy-file-icons
+
+    - name: Update All Atom Packages
+      command: apm upgrade --confirm false --verbose
   tags:
     - provision
-    - update
+    - update_all
+    - update_atom
 
-- name: Install Atom
-  homebrew_cask:
-    name: atom
-    state: present
-    update_homebrew: yes
+- block:
+    - name: Install InSpec
+      gem:
+        name: inspec
+        state: latest
 
-- name: Install Update Atom Packages
-  command: apm install {{ item }}
-  with_items:
-    - autocomplete-plus
-    - language-c
-    - language-git
-    - language-go
-    - language-python
-    - language-ruby
-    - language-javascript
-    - language-json
-    - language-make
-    - language-shellscript
-    - language-sql
-    - language-sql-mysql
-    - language-pgsql
-    - language-todo
-    - language-toml
-    - language-yaml
-# Community Packages
-    - atom-beautify
-    - atom-clock
-    - autocomplete-clang
-    - autocomplete-python
-    - busy-signal
-    - clang-format
-    - es6-javascript
-    # - format-sql
-    - formatter-clang-format
-    - git-plus
-    - language-docker
-    - linter
-    - linter-docker
-    - linter-lintr
-    - linter-shellcheck
-    - linter-ui-default
-    - make-runner
-    - platformio-ide-terminal
-    - python-autopep8
-    - python-debugger
-    - python-indent
-    - python-isort
-    - python-tools
-    - python-yapf
-    - standard-formatter
-    - tree-view-git-status
-    - unfancy-file-icons
-  tags:
-    - provision
-    - update
+    - name: Copy Over Tests
+      copy:
+        src: 'files/{{ package_test }}'
+        dest: '{{ playbook_dir }}'
+        mode: 0755
 
-- name: Update All Atom Packages
-  command: apm upgrade --confirm false --verbose
-  tags:
-    - provision
-    - update
+    - name: Run Basic Tests
+      command: inspec exec '{{ package_test }}' --no-color
+      ignore_errors: yes
+      register: package_results
 
+    - name: 'Write Tests to File {{playbook_dir}}/{{package_test}}'
+      copy:
+        content: '{{ package_results.stdout }}'
+        dest: '{{playbook_dir}}/{{ package_test_results_file }}'
 
-# TODO Install Docker
-# - name: Install Docker For Mac
-#   command: wget --show-progress https://download.docker.com/mac/stable/Docker.dmg
-
-- name: Start Docker
-  command: open -a Docker
-  tags:
-    - restart_docker
-    - provision
-    - test
-
-- pause:
-    seconds: 30
-
-
-- name: Install InSpec
-  gem:
-    name: inspec
-    state: latest
-  tags:
-    - provision
-    - update
-    - test
-
-
-- name: Copy Over Tests
-  copy:
-    src: files/test.rb
-    dest: '{{ playbook_dir }}'
-    mode: 0755
-  tags:
-    - provision
-    - update
-    - test
-
-- name: Run Basic Tests
-  command: inspec exec test.rb
-  tags:
-    - provision
-    - update
-    - test
-  ignore_errors: yes
-  register: results
-
-- name: Write Tests to File
-  copy:
-    content: '{{ results.stdout }}'
-    dest: '{{playbook_dir}}/results.txt'
-  tags:
-    - provision
-    - update
-    - test
-
-- name: Remove Test files
-  file:
-    name: test.rb
-    state: absent
+    - name: Remove Test files
+      file:
+        name: '{{ package_test }}'
+        state: absent
   tags:
     - provision
     - update

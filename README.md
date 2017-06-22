@@ -5,3 +5,16 @@
 Run the following to provision your mac: 
 `ansible-playbook -i hosts site.yml`
 
+Tags: 
+
+ * provision -> Runs all tasks
+
+ * update_all -> Updates all packages
+
+ * update_atom -> Updates atom
+
+ * update_packages -> Updates brew packages
+ 
+ * test -> Runs InSpec tests
+
+

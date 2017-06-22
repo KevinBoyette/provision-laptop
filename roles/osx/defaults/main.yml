@@ -1,0 +1,3 @@
+---
+package_test: packages.rb
+package_test_results_file: 'package-results.txt'
