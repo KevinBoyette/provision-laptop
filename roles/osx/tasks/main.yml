@@ -5,9 +5,9 @@
       become: yes
       command: softwareupdate -i -a
   tags:
-    - provision
     - update_mac
-    
+
+
 - block:
     - name: Upgrade Homebrew
       homebrew:
@@ -112,6 +112,9 @@
         - standard-formatter
         - tree-view-git-status
         - unfancy-file-icons
+        # Themes
+        - seti-ui
+        - seti-syntax
 
     - name: Update All Atom Packages
       command: apm upgrade --confirm false --verbose
