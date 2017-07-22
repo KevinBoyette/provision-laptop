@@ -1,0 +1,52 @@
+---
+- block:
+    - name: Install Pip packages
+      pip:
+        name: '{{ item }}'
+        state: latest
+      with_items:
+        - ansible
+        - ansible-lint
+        - asn1crypto
+        - aws
+        - boto
+        - colorama
+        - coverage
+        - cryptography
+        - cycler
+        - decorator
+        - idna
+        - isort
+        - itsdangerous
+        - jenkinsapi
+        - Jinja2
+        - mccabe
+        - numpy
+        - pandas
+        - paramiko
+        - pip
+        - prettytable
+        - prospector
+        - pycrypto
+        - pydocstyle
+        - pyflakes
+        - Pygments
+        - pylint
+        - pylint-celery
+        - pylint-common
+        - pylint-plugin-utils
+        - PyMySQL
+        - pyparsing
+        - PyYAML
+        - requests
+        - seaborn
+        - setoptconf
+        - setuptools
+        - simplegeneric
+        - six
+        - termcolor
+        - urllib3
+        - yapf
+  tags:
+    - update_all
+    - pip
