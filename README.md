@@ -5,6 +5,10 @@
 Run the following to provision your mac:
 `ansible-playbook -i hosts site.yml`
 
+You must likely want to run if you already have Atom installed
+`ansible-playbook -i hosts site.yml --tags update_all
+
+
 Tags:
 
  * provision -> Runs all tasks
