@@ -1,7 +1,0 @@
-- name: Install Databases
-  homebrew:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-     - postgresql
-     - mysql

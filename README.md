@@ -3,10 +3,10 @@
 * NOTE: Requires Ansible and Homebrew installed
 
 Run the following to provision your mac:
-`ansible-playbook -i hosts site.yml`
+`ansible-playbook -i hosts site.yaml`
 
 You must likely want to run if you already have Atom installed
-`ansible-playbook -i hosts site.yml --tags update_all
+`ansible-playbook -i hosts site.yaml --tags update_all
 
 
 Tags:
