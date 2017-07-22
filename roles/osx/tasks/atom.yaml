@@ -1,0 +1,67 @@
+
+- name: Install Atom
+  homebrew_cask:
+    name: atom
+    state: present
+    update_homebrew: yes
+  tags:
+    - provision
+
+- block:
+    - name: Install Update Atom Packages
+      command: apm install {{ item }}
+      with_items:
+        - autocomplete-plus
+        - language-c
+        - language-git
+        - language-go
+        - language-python
+        - language-ruby
+        - language-javascript
+        - language-json
+        - language-make
+        - language-shellscript
+        - language-sql
+        - language-sql-mysql
+        - language-pgsql
+        - language-todo
+        - language-toml
+        - language-yaml
+    # Community Packages
+        - atom-beautify
+        - atom-clock
+        - autocomplete-clang
+        - autocomplete-python
+        - busy-signal
+        - clang-format
+        - es6-javascript
+        # - format-sql
+        - formatter-clang-format
+        - git-plus
+        - language-docker
+        - linter
+        - linter-docker
+        - linter-lintr
+        - linter-shellcheck
+        - linter-ui-default
+        - make-runner
+        - platformio-ide-terminal
+        - python-autopep8
+        - python-debugger
+        - python-indent
+        - python-isort
+        - python-tools
+        - python-yapf
+        - standard-formatter
+        - tree-view-git-status
+        - unfancy-file-icons
+        # Themes
+        - seti-ui
+        - seti-syntax
+
+    - name: Update All Atom Packages
+      command: apm upgrade --confirm false --verbose
+  tags:
+    - provision
+    - update_all
+    - update_atom
