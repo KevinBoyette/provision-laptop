@@ -1,4 +1,4 @@
-
+---
 - name: Install Atom
   homebrew_cask:
     name: atom

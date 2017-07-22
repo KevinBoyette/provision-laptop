@@ -1,3 +1,4 @@
+---
 - block:
     - name: Install InSpec
       gem:
