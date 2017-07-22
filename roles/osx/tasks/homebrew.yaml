@@ -1,0 +1,48 @@
+---
+  
+- block:
+    - name: Upgrade Homebrew
+      homebrew:
+        update_homebrew: yes
+
+    - name: Install Languages
+      homebrew:
+        name: '{{ item }}'
+        state: latest
+      with_items:
+        - python
+        - ghc
+        - go
+        - groovy
+        - node
+        - ruby
+        - rbenv
+        - ruby-build
+        - make
+        - gcc
+
+    - name: Install Packages
+      homebrew:
+        name: '{{ item }}'
+        state: latest
+      with_items:
+        - vim
+        - awscli
+        - docker
+        - docker-compose
+        - docker-machine
+        - cmake
+        - curl
+        - coreutils
+        - jq
+        - ShellCheck
+        - terraform
+        - tree
+        - wget
+        - zsh
+        - zsh-completions
+  tags:
+    - provision
+    - update_packages
+    - update_all
+    - test
