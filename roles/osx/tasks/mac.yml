@@ -1,6 +1,0 @@
----
-- block:
-    - name: Update Mac OS X
-      command: softwareupdate -i -a
-  tags:
-    - update_mac

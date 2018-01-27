@@ -1,5 +1,5 @@
 ---
-
+cask_install: true
 package_test: packages.rb
 package_test_results_file: 'package-results.txt'
 cask_installs:
@@ -12,6 +12,7 @@ cask_installs:
   - grammarly
   - iterm2
   - java
+  - kindle
   - lastpass
   - powershell
   - slack
@@ -29,7 +30,7 @@ must_haves:
   - fswatch
   - git
   - go
-  - htop
+ # - htop
   - jq
   - nmap
   - openssl
@@ -38,8 +39,11 @@ must_haves:
   - perl
   - pv
   - python3
+  - rbenv
   - ruby
+  - ruby-build
   - ShellCheck
+  - shfmt
   - terraform
   - tcptrack
   - tmux
@@ -107,7 +111,7 @@ pip_packages:
     - isort
     - itsdangerous
     - Jinja2
-    - mypy
+    #- mypy
     - numpy
     - pandas
     - paramiko

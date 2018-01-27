@@ -1,10 +1,4 @@
 ---
-- name: Install Atom
-  homebrew_cask:
-    name: atom
-    state: latest
-    update_homebrew: yes
-
 - name: Install Update Atom Packages
   command: 'apm install {{ item }}'
   with_items:

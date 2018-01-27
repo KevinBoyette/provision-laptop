@@ -17,6 +17,7 @@
   with_items:
     - '{{ cask_installs }}'
   ignore_errors: yes
+  when: cask_install
 
 
 - name: Install Commandline Utilities

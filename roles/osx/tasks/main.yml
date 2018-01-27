@@ -1,8 +1,5 @@
-- name: Refresh Sudo 
-  command: echo "running"
-  become: yes
 
-- include: homebrew.yml
-- include: pip.yml
-- include: atom.yml
-- include: testing.yml
+- import_tasks: homebrew.yml
+- import_tasks: pip.yml
+- import_tasks: atom.yml
+- import_tasks: testing.yml

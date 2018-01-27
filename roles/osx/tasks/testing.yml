@@ -1,31 +1,26 @@
 ---
-- block:
-    - name: Install InSpec
-      gem:
-        name: inspec
-        state: latest
+- name: Install InSpec
+  gem:
+    name: inspec
+    state: latest
 
-    - name: Copy Over Tests
-      copy:
-        src: 'files/{{ package_test }}'
-        dest: '{{ playbook_dir }}'
-        mode: 0755
+- name: Copy Over Tests
+  copy:
+    src: 'files/{{ package_test }}'
+    dest: '{{ playbook_dir }}'
+    mode: 0755
 
-    - name: Run Basic Tests
-      command: inspec exec '{{ package_test }}' --no-color
-      ignore_errors: yes
-      register: package_results
+- name: Run Basic Tests
+  command: inspec exec '{{ package_test }}' --no-color
+  ignore_errors: yes
+  register: package_results
 
-    - name: 'Write Tests to File {{playbook_dir}}/{{package_test}}'
-      copy:
-        content: '{{ package_results.stdout }}'
-        dest: '{{playbook_dir}}/{{ package_test_results_file }}'
+- name: 'Write Tests to File {{playbook_dir}}/{{package_test}}'
+  copy:
+    content: '{{ package_results.stdout }}'
+    dest: '{{playbook_dir}}/{{ package_test_results_file }}'
 
-    - name: Remove Test files
-      file:
-        name: '{{ package_test }}'
-        state: absent
-  tags:
-    - provision
-    - update_all
-    - test
+- name: Remove Test files
+  file:
+    name: '{{ package_test }}'
+    state: absent
