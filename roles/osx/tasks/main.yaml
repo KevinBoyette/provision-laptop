@@ -1,5 +1,0 @@
----
-- include: homebrew.yaml
-- include: pip.yaml
-- include: atom.yaml
-- include: testing.yaml
