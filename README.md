@@ -3,22 +3,9 @@
 * NOTE: Requires Ansible and Homebrew installed
 
 Run the following to provision your mac:
-`ansible-playbook -i hosts site.yaml`
-
-You must likely want to run if you already have Atom installed
-`ansible-playbook -i hosts site.yaml --tags update_all
+`ansible-playbook  playbooks/provision.yaml`
 
 
-Tags:
+## Installed Packages
 
- * provision -> Runs all tasks
-
- * update_all -> Updates all packages
-
- * update_atom -> Updates atom
-
- * update_mac -> Install All Mac Updates
-
- * update_packages -> Updates brew packages
-
- * test -> Runs InSpec tests
+For a complete list of installed packages, look in `roles/osx/defaults/main.yml`
