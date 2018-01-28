@@ -65,9 +65,10 @@ pip_packages.each do |pip_package|
   end
 end
 
-gems = %w[
-  rubocop
-  inspec
+gems = [
+  'rubocop',
+  'inspec',
+  'rake',
 ]
 
 gems.each do |item|

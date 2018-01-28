@@ -1,8 +1,12 @@
 ---
-- name: Install InSpec
+- name: Install Gems
   gem:
-    name: inspec
+    name: "{{ item }}"
     state: latest
+  with_items:
+    - inspec
+    - rake
+    - rubocop
 
 - name: Copy Over Tests
   copy:
