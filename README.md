@@ -3,7 +3,7 @@
 * NOTE: Requires Ansible and Homebrew installed
 
 Run the following to provision your mac:
-`ansible-playbook  playbooks/provision.yaml`
+`ansible-playbook  playbooks/provision.yml`
 
 
 ## Installed Packages

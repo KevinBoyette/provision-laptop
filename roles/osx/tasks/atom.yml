@@ -1,8 +1,0 @@
----
-- name: Install Update Atom Packages
-  command: 'apm install {{ item }}'
-  with_items:
-    - '{{ atom_packages }}'
-    
-- name: Update All Atom Packages
-  command: apm upgrade --confirm false --verbose

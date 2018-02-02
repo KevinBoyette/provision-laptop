@@ -1,12 +1,4 @@
 ---
-- name: Install Gems
-  gem:
-    name: "{{ item }}"
-    state: latest
-  with_items:
-    - inspec
-    - rake
-    - rubocop
 
 - name: Copy Over Tests
   copy:
