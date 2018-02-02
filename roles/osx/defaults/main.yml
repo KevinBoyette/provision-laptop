@@ -17,7 +17,7 @@ cask_installs:
   - powershell
   - slack
   - wireshark
-  - visual-studio-code-insiders
+  - visual-studio-code
   - vagrant
   - xquartz
 
@@ -32,6 +32,7 @@ must_haves:
   - go
  # - htop
   - jq
+  - neovim
   - nmap
   - openssl
   - openssh
@@ -111,7 +112,7 @@ pip_packages:
     - isort
     - itsdangerous
     - Jinja2
-    #- mypy
+    - neovim
     - numpy
     - pandas
     - paramiko
@@ -131,3 +132,9 @@ pip_packages:
     - termcolor
     - urllib3
     - yapf
+
+gem_installs:
+  - inspec
+  - rake
+  - rubocop
+  - neovim
