@@ -133,8 +133,3 @@ pip_packages:
     - urllib3
     - yapf
 
-gem_installs:
-  - inspec
-  - rake
-  - rubocop
-  - neovim
