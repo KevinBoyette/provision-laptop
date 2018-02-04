@@ -1,0 +1,39 @@
+---
+package_test: packages.rb
+package_test_results_file: 'package-results.txt'
+
+must_haves:
+  - autojump
+  #  - aws-cli
+  - conky # i3 dependency
+  - coreutils
+  - ctags
+  - curl
+  - dmenu # i3 dependency
+  - feh
+  - git
+  - go
+  - go-tools
+  - htop
+  - i3-wm
+  - i3status
+  - jq
+  - neovim
+  - nmap
+  - openssl
+  - openssh
+  - packer-io
+  - perl
+  - pv
+  - python2-pip # pacman views python as python3
+  - python
+  - ruby
+  - shellcheck
+  - terraform
+  - tmux
+  - tree
+  - procps-ng  # the watch command
+  - wget
+  - vim
+  - zsh
+
