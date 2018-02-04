@@ -1,0 +1,39 @@
+---
+package_test: packages.rb
+package_test_results_file: 'package-results.txt'
+
+must_haves:
+  - autojump
+  - awscli
+  - coreutils
+  - ctags
+  - curl
+  - fswatch
+  - git
+  - go
+ # - htop
+  - jq
+  - neovim
+  - nmap
+  - openssl
+  - openssh
+  - packer
+  - perl
+  - pv
+  - python3
+  - rbenv
+  - ruby
+  - ruby-build
+  - ShellCheck
+  - shfmt
+  - terraform
+  - tcptrack
+  - tmux
+  - tree
+  - watch
+  - wget
+  - vim
+  - zsh
+  - zsh-completions
+  - zsh-autosuggestions
+

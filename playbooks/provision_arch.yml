@@ -1,0 +1,9 @@
+- name: Provision Laptop
+  hosts: all
+  connection: local
+  gather_facts: no
+  become: yes
+  roles:
+    - { role: pacman }
+    - { role: python_packages }
+    - { role: ruby_packages }

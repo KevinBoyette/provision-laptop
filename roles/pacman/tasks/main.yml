@@ -1,0 +1,3 @@
+
+- import_tasks: pacman.yml
+- import_tasks: testing.yml

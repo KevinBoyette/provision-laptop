@@ -1,0 +1,14 @@
+---
+- name: Update Pacman
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: Install Packages
+  pacman:
+    name: '{{ item }}'
+    state: present
+  with_items:
+    - '{{ must_haves }}'
+  ignore_errors: yes
+
