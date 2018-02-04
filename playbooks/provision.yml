@@ -3,5 +3,6 @@
   connection: local
   gather_facts: no
   roles:
-    - osx
-    - gems
+    - { role: osx }
+    - { role: pip }
+    - { role: gems }

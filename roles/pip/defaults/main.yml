@@ -1,0 +1,38 @@
+
+pip_packages:
+    - ansible
+    - ansible-lint
+    - asn1crypto
+    - aws
+    - boto
+    - boto3
+    - colorama
+    - coverage
+    - cryptography
+    - docker
+    - isort
+    - itsdangerous
+    - Jinja2
+    - neovim
+    - numpy
+    - pandas
+    - paramiko
+    - pip
+    - pipenv
+    - prospector
+    - pycrypto
+    - Pygments
+    - pyparsing
+    - pytest
+    - pytest-bdd
+    - pytest-sugar
+    - pytest-testmon
+    - pytest-watch
+    - PyYAML
+    - requests
+    - termcolor
+    - urllib3
+    - yapf
+
+pip3_only_packages:
+  - mypy

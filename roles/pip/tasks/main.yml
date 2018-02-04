@@ -17,10 +17,10 @@
     - '{{ pip_packages }}'
 
 
-- name: Install mypy For Python3
+- name: Install Packages Exclusive To Python3
   pip:
     name: '{{ item }}'
     state: latest
     executable: pip3
   with_items:
-    - mypy
+    - '{{ pip3_only_packages }}'
