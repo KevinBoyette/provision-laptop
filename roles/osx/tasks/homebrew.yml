@@ -23,7 +23,7 @@
 - name: Install Commandline Utilities
   homebrew:
     pkg: '{{ item }}'
-    state: latest
+    state: present
     update_homebrew: yes
   with_items:
     - '{{ must_haves }}'
