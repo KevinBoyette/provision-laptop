@@ -1,7 +1,7 @@
-# Provision A Macbook
 
 
-# Provisioning A Mac 
+
+# Provisioning A Mac
 
 * Requires Ansible and Homebrew installed
 
@@ -15,7 +15,7 @@ For a complete list of installed packages, look in `roles/osx/`
 
 # Provisioning Arch Linux
 
-Install Ansible: `sudo pacman -Syy ansible` 
+Install Ansible: `sudo pacman -Syy ansible`
 
 `ansible-playbook  playbooks/provision_arch.yml`
 
