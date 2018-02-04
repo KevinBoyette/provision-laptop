@@ -1,0 +1,6 @@
+---
+gem_installs:
+  - inspec
+  - rake
+  - rubocop
+  - neovim

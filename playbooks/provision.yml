@@ -3,4 +3,6 @@
   connection: local
   gather_facts: no
   roles:
-    - osx
+    - { role: osx }
+    - { role: python_packages }
+    - { role: ruby_packages }

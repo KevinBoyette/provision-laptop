@@ -3,7 +3,7 @@
 - name: Install Pip2 packages
   pip:
     name: '{{ item }}'
-    state: latest
+    state: present
     executable: pip2
   with_items:
     - '{{ pip_packages }}'
@@ -11,16 +11,16 @@
 - name: Install Pip3 packages
   pip:
     name: '{{ item }}'
-    state: latest
+    state: present
     executable: pip3
   with_items:
     - '{{ pip_packages }}'
 
 
-- name: Install mypy For Python3
+- name: Install Packages Exclusive To Python3
   pip:
     name: '{{ item }}'
-    state: latest
+    state: present
     executable: pip3
   with_items:
-    - mypy
+    - '{{ pip3_only_packages }}'

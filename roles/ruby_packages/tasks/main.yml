@@ -1,7 +1,7 @@
-
+---
 - name: Install Gems
   gem:
     name: "{{ item }}"
-    state: latest
+    state: present
   with_items:
     - '{{ gem_installs }}'
