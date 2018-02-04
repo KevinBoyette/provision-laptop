@@ -4,36 +4,36 @@ package_test_results_file: 'package-results.txt'
 
 must_haves:
   - autojump
-  - awscli
+  #  - aws-cli
+  - conky # i3 dependency
   - coreutils
   - ctags
   - curl
-  - fswatch
+  - dmenu # i3 dependency
+  - feh
   - git
   - go
- # - htop
+  - go-tools
+  - htop
+  - i3-wm
+  - i3status
   - jq
   - neovim
   - nmap
   - openssl
   - openssh
-  - packer
+  - packer-io
   - perl
   - pv
-  - python3
-  - rbenv
+  - python2-pip # pacman views python as python3
+  - python
   - ruby
-  - ruby-build
-  - ShellCheck
-  - shfmt
+  - shellcheck
   - terraform
-  - tcptrack
   - tmux
   - tree
-  - watch
+  - procps-ng  # the watch command
   - wget
   - vim
   - zsh
-  - zsh-completions
-  - zsh-autosuggestions
 
