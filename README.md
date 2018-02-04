@@ -1,6 +1,9 @@
 # Provision A Macbook
 
-* NOTE: Requires Ansible and Homebrew installed
+
+# Provisioning A Mac 
+
+* Requires Ansible and Homebrew installed
 
 Run the following to provision your mac:
 `ansible-playbook  playbooks/provision.yml`
@@ -8,4 +11,12 @@ Run the following to provision your mac:
 
 ## Installed Packages
 
-For a complete list of installed packages, look in `roles/osx/defaults/main.yml`
+For a complete list of installed packages, look in `roles/osx/`
+
+# Provisioning Arch Linux
+
+Install Ansible: `sudo pacman -Syy ansible` 
+
+`ansible-playbook  playbooks/provision_arch.yml`
+
+
