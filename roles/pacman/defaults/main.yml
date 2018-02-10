@@ -11,6 +11,7 @@ must_haves:
   - curl
   - dmenu # i3 dependency
   - feh
+  - firefox
   - git
   - go
   - go-tools
@@ -30,6 +31,8 @@ must_haves:
   - ruby
   - shellcheck
   - terraform
+  - texlive-most
+  - texlive-lang
   - tmux
   - tree
   - procps-ng  # the watch command
