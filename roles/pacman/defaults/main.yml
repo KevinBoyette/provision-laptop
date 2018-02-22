@@ -4,6 +4,7 @@ package_test_results_file: 'package-results.txt'
 
 must_haves:
   - autojump
+  - clang
   #  - aws-cli
   - conky # i3 dependency
   - coreutils
