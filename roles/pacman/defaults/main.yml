@@ -29,6 +29,7 @@ must_haves:
   - python2-pip # pacman views python as python3
   - python
   - ruby
+  - rust
   - shellcheck
   - terraform
   - texlive-most
