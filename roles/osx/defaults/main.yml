@@ -5,6 +5,7 @@ package_test_results_file: 'package-results.txt'
 cask_installs:
   - 1password
   - atom
+  - cpprestsdk
   - docker
   - firefox
   - google-chrome
