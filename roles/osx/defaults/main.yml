@@ -1,53 +1,63 @@
 ---
-cask_install: true
+cask_install: false
 package_test: packages.rb
 package_test_results_file: 'package-results.txt'
 cask_installs:
   - 1password
-  - atom
-  - cpprestsdk
   - docker
   - firefox
   - google-chrome
-  - gpg-suite
   - grammarly
   - iterm2
   - java
   - kindle
-  - lastpass
   - powershell
   - slack
   - wireshark
   - visual-studio-code
-  - vagrant
   - xquartz
 
 must_haves:
-  - autojump
+  - aspell
   - awscli
+  - brotli
   - coreutils
+  - clang-format
+  - coreutils
+  - cscope
   - ctags
   - curl
+  - entr
+  - emacs
   - fswatch
+  - fzf
   - git
+  - gnutls
   - go
- # - htop
+  - htop
   - jq
+  - llvm
+  - lua
+  - luajit
+  - make
   - neovim
   - nmap
+  - node
   - openssl
   - openssh
   - packer
+  - pandoc
   - perl
   - pv
-  - python3
+  - python
   - rbenv
+  - ripgrep
   - ruby
   - ruby-build
   - ShellCheck
   - shfmt
   - terraform
-  - tcptrack
+  - the_silver_searcher
   - tmux
   - tree
   - watch
@@ -56,47 +66,4 @@ must_haves:
   - zsh
   - zsh-completions
   - zsh-autosuggestions
-
-atom_packages:
-  - autocomplete-plus
-  - language-c
-  - language-git
-  - language-go
-  - language-python
-  - language-ruby
-  - language-json
-  - language-make
-  - language-shellscript
-  - language-todo
-  - language-toml
-  - language-yaml
-  - atom-beautify
-  - atom-clock
-  - autocomplete-clang
-  - autocomplete-python
-  - busy-signal
-  - clang-format
-  - formatter-clang-format
-  - git-plus
-  - language-docker
-  - linter
-  - linter-docker
-  - linter-lintr
-  - linter-shellcheck
-  - linter-ui-default
-  - make-runner
-  - platformio-ide-terminal
-  - python-autopep8
-  - python-debugger
-  - python-indent
-  - python-isort
-  - python-tools
-  - python-yapf
-  - standard-formatter
-  - tree-view-git-status
-  - unfancy-file-icons
-  - seti-ui
-  - seti-syntax
-  - dracula-syntax
-
 

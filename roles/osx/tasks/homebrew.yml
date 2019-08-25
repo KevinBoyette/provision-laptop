@@ -3,6 +3,12 @@
   homebrew:
     update_homebrew: yes
 
+- name: Install Commandline Utilities
+  homebrew:
+    pkg: [ '{{ must_haves }}' ]
+    state: present
+    update_homebrew: yes
+
 - name: Install Brew Cask
   command: brew install caskroom/cask/brew-cask
 
@@ -18,15 +24,6 @@
     - '{{ cask_installs }}'
   ignore_errors: yes
   when: cask_install
-
-
-- name: Install Commandline Utilities
-  homebrew:
-    pkg: '{{ item }}'
-    state: present
-    update_homebrew: yes
-  with_items:
-    - '{{ must_haves }}'
 
 - name: Cleanup Brew
   command: brew cask cleanup

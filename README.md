@@ -1,17 +1,24 @@
-
-
-
 # Provisioning A Mac
 
-* Requires Ansible and Homebrew installed
+This repo requires that both [homebrew](https://brew.sh/) and [Ansible](https://www.ansible.com) are installed and in your shell's $PATH.
 
-Run the following to provision your mac:
+## Installation
+
+Clone this repo and run `./install.sh` or `make install`.  This script will download and install
+all the required dependencies.
+
+If you'd rather have complete control, then install `homebrew` and `ansible`
+and run the following command in your terminal
+
 `ansible-playbook  playbooks/provision.yml`
 
 
+Note: The script will prompt your for your password a couple times.
+
 ## Installed Packages
 
-For a complete list of installed packages, look in `roles/osx/`
+For a complete list of installed packages, look in `roles/osx/`.  
+
 
 # Provisioning Arch Linux
 
