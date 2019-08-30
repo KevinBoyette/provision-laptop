@@ -22,12 +22,6 @@ else
     brew update
 fi
 
-# notice 'Installing Ansible'
-# brew list ansible >/dev/null || brew install ansible >/dev/null
-
-#echo "Running ansible"
-#ansible-playbook playbooks/provision.yml
-
 notice 'Installing Tools'
 brew install \
     ansible \
@@ -109,6 +103,7 @@ notice 'Installing Python packages'
 if command -v python3 >/dev/null; then
     python3 -m pip install -q \
         black \
+        neovim \
         numpy \
         matplotlib \
         pandas \
@@ -116,6 +111,15 @@ if command -v python3 >/dev/null; then
         pipenv
 else
     echo "It looks like python3 is not installed!"
+fi
+
+notice 'Installing some node packages'
+if command -v npm >/dev/null; then
+    npm install -g \
+        neovim \
+        lldb
+else
+    echo 'It looks like node is not installed'
 fi
 
 echo "Finished setup"
